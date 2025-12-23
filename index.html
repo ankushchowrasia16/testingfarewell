@@ -47,7 +47,9 @@
             min-height: 100vh;
             min-height: 100dvh;
             width: 100%;
-            background: var(--bg);
+            background: linear-gradient(rgba(10, 10, 10, 0.5), rgba(10, 10, 10, 0.6)),
+                url('https://raw.githubusercontent.com/ankushchowrasia/images/1dc75f320ddd6d1e86f750fe6f4755321f36c584/websiteankush.jpg') no-repeat center center / cover;
+            background-attachment: fixed;
             font-family: 'Cormorant Garamond', serif;
             color: var(--white);
             overflow-x: hidden;
@@ -412,13 +414,15 @@
         .card {
             max-width: 850px;
             width: 100%;
-            background: var(--card-bg);
+            background: rgba(20, 20, 25, 0.55);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(201, 162, 39, 0.3);
             border-radius: 8px;
             padding: clamp(40px, 8vw, 70px) clamp(25px, 5vw, 50px);
             position: relative;
             box-shadow:
-                0 40px 80px rgba(0, 0, 0, 0.6),
+                0 40px 80px rgba(0, 0, 0, 0.4),
                 0 0 60px rgba(201, 162, 39, 0.1);
             opacity: 0;
             transform: translateY(40px);
@@ -801,7 +805,7 @@
             font-weight: 300;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--gray);
+            color: #ffffff;
             white-space: nowrap;
             opacity: 0;
             transition: opacity 0.4s ease;
@@ -809,7 +813,7 @@
         }
 
         .credit.visible {
-            opacity: 0.7;
+            opacity: 0.5;
         }
 
         /* ===== AUDIO BUTTON ===== */
@@ -879,6 +883,11 @@
 
             .vignette {
                 background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
+            }
+
+            /* Fix background on mobile */
+            body {
+                background-attachment: scroll;
             }
 
             /* Faster intro on mobile */
