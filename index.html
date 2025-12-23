@@ -2,158 +2,56 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Saint Paul's School Farewell 2026 </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Saint Paul's School Farewell 2026</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png"
         href="https://raw.githubusercontent.com/ankushchowrasia/images/4c194ded86ea8e51cc47661648241ed33137879a/Screenshot%202025-11-16%20191547.png">
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&family=Oswald:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Oswald:wght@300;400;500&family=Cormorant+Garamond:wght@300;400;500&display=swap"
         rel="stylesheet">
 
     <style>
-        * {
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
         :root {
-            --cinema-black: #0a0a0a;
-            --cinema-dark: #111111;
-            --cinema-red: #8B0000;
-            --cinema-red-glow: #ff2020;
-            --cinema-gold: #c9a227;
-            --cinema-gold-light: #e8d48b;
-            --cinema-white: #f5f5f5;
-            --cinema-gray: #888888;
+            --bg: #0a0a0a;
+            --card-bg: rgba(15, 15, 20, 0.95);
+            --gold: #c9a227;
+            --gold-light: #e8d48b;
+            --gold-dark: #8B6914;
+            --white: #f5f5f5;
+            --gray: #666;
+            --red: #c75450;
         }
 
-        html,
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+        }
+
         body {
             min-height: 100vh;
+            min-height: 100dvh;
             width: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85), rgba(10, 10, 15, 0.9)),
-                url('https://raw.githubusercontent.com/ankushchowrasia/images/1dc75f320ddd6d1e86f750fe6f4755321f36c584/websiteankush.jpg') no-repeat center center/cover;
-            background-attachment: fixed;
+            background: var(--bg);
             font-family: 'Cormorant Garamond', serif;
-            color: var(--cinema-white);
+            color: var(--white);
             overflow-x: hidden;
-        }
-
-        /* ===== FILM GRAIN OVERLAY ===== */
-        .film-grain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9998;
-            opacity: 0.04;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
-            animation: grainShift 0.5s steps(10) infinite;
-        }
-
-        @keyframes grainShift {
-
-            0%,
-            100% {
-                transform: translate(0, 0);
-            }
-
-            10% {
-                transform: translate(-1%, -1%);
-            }
-
-            20% {
-                transform: translate(1%, 1%);
-            }
-
-            30% {
-                transform: translate(-1%, 1%);
-            }
-
-            40% {
-                transform: translate(1%, -1%);
-            }
-
-            50% {
-                transform: translate(-1%, 0);
-            }
-
-            60% {
-                transform: translate(1%, 0);
-            }
-
-            70% {
-                transform: translate(0, 1%);
-            }
-
-            80% {
-                transform: translate(0, -1%);
-            }
-
-            90% {
-                transform: translate(1%, 1%);
-            }
-        }
-
-        /* ===== VIGNETTE EFFECT ===== */
-        .vignette {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 5;
-            background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.7) 100%);
-        }
-
-        /* ===== SPOTLIGHT EFFECT ===== */
-        .spotlight {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 4;
-            background: radial-gradient(ellipse 60% 80% at var(--spot-x, 50%) var(--spot-y, 30%),
-                    rgba(255, 255, 255, 0.08) 0%,
-                    rgba(255, 255, 255, 0.02) 30%,
-                    transparent 70%);
-            animation: spotlightMove 15s ease-in-out infinite;
-        }
-
-        @keyframes spotlightMove {
-
-            0%,
-            100% {
-                --spot-x: 30%;
-                --spot-y: 20%;
-            }
-
-            25% {
-                --spot-x: 70%;
-                --spot-y: 25%;
-            }
-
-            50% {
-                --spot-x: 60%;
-                --spot-y: 40%;
-            }
-
-            75% {
-                --spot-x: 40%;
-                --spot-y: 30%;
-            }
+            -webkit-font-smoothing: antialiased;
         }
 
         /* ===== CINEMATIC LETTERBOX BARS ===== */
@@ -162,11 +60,11 @@
             position: fixed;
             left: 0;
             right: 0;
-            height: 5vh;
+            height: 4vh;
             background: #000;
-            z-index: 100;
+            z-index: 1001;
             opacity: 0;
-            animation: letterboxFade 1.5s ease-out 0.5s forwards;
+            animation: letterboxIn 1s ease-out 0.5s forwards;
         }
 
         .letterbox-top {
@@ -177,67 +75,88 @@
             bottom: 0;
         }
 
-        @keyframes letterboxFade {
+        @keyframes letterboxIn {
             to {
                 opacity: 1;
             }
         }
 
-        /* ===== DUST PARTICLES ===== */
-        .dust-container {
+        /* ===== DECORATIVE GOLD BORDERS ===== */
+        .gold-border-top,
+        .gold-border-bottom {
             position: fixed;
-            top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 6;
-            overflow: hidden;
-        }
-
-        .dust {
-            position: absolute;
-            width: 2px;
+            right: 0;
             height: 2px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            animation: dustFloat 20s linear infinite;
+            background: linear-gradient(90deg, transparent 0%, var(--gold-dark) 20%, var(--gold) 50%, var(--gold-dark) 80%, transparent 100%);
+            z-index: 1002;
         }
 
-        @keyframes dustFloat {
-            0% {
-                transform: translateY(100vh) translateX(0);
-                opacity: 0;
-            }
+        .gold-border-top {
+            top: 4vh;
+        }
 
-            10% {
-                opacity: 1;
-            }
+        .gold-border-bottom {
+            bottom: 4vh;
+        }
 
-            90% {
-                opacity: 1;
-            }
+        /* ===== VIGNETTE EFFECT ===== */
+        .vignette {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 5;
+            background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.6) 100%);
+        }
 
+        /* ===== FILM GRAIN ===== */
+        .film-grain {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9997;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            animation: grain 0.5s steps(8) infinite;
+        }
+
+        @keyframes grain {
+
+            0%,
             100% {
-                transform: translateY(-10vh) translateX(50px);
-                opacity: 0;
+                transform: translate(0, 0);
+            }
+
+            20% {
+                transform: translate(-1%, 1%);
+            }
+
+            40% {
+                transform: translate(1%, -1%);
+            }
+
+            60% {
+                transform: translate(-1%, -1%);
+            }
+
+            80% {
+                transform: translate(1%, 1%);
             }
         }
 
         /* ===== CINEMATIC INTRO ===== */
         .cinematic-intro {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background: #000;
             z-index: 10000;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 20px;
             animation: introFadeOut 1.5s ease-out 6s forwards;
+            will-change: opacity, visibility;
         }
 
         @keyframes introFadeOut {
@@ -250,40 +169,59 @@
 
         .studio-presents {
             font-family: 'Cinzel', serif;
-            font-size: clamp(0.8rem, 2vw, 1.2rem);
+            font-size: clamp(0.7rem, 2vw, 1rem);
             font-weight: 600;
-            letter-spacing: 8px;
+            letter-spacing: clamp(4px, 1vw, 8px);
             text-transform: uppercase;
-            color: var(--cinema-gold);
+            color: var(--gold);
             opacity: 0;
-            animation: fadeInUp 1.5s ease-out 0.5s forwards;
+            animation: fadeInUp 1.2s ease-out 0.5s forwards;
             margin-bottom: 30px;
+            text-align: center;
             text-shadow: 0 0 20px rgba(201, 162, 39, 0.5);
         }
 
-        .intro-logo-cinematic {
-            width: clamp(150px, 30vw, 250px);
-            height: clamp(150px, 30vw, 250px);
-            border-radius: 50%;
-            border: 3px solid var(--cinema-gold);
-            box-shadow:
-                0 0 60px rgba(201, 162, 39, 0.4),
-                0 0 120px rgba(201, 162, 39, 0.2),
-                inset 0 0 30px rgba(0, 0, 0, 0.5);
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro-logo-wrapper {
+            position: relative;
             opacity: 0;
-            animation: logoReveal 2s ease-out 1.5s forwards;
+            animation: logoReveal 1.8s ease-out 1.5s forwards;
+            will-change: transform, opacity;
+        }
+
+        .intro-logo {
+            width: clamp(160px, 35vw, 250px);
+            height: clamp(160px, 35vw, 250px);
+            border-radius: 50%;
+            border: 3px solid var(--gold);
+            box-shadow:
+                0 0 50px rgba(201, 162, 39, 0.5),
+                0 0 100px rgba(201, 162, 39, 0.3),
+                inset 0 0 30px rgba(0, 0, 0, 0.5);
             object-fit: cover;
+            animation: pulseGlow 3s ease-in-out infinite 3s;
         }
 
         @keyframes logoReveal {
             0% {
                 opacity: 0;
-                transform: scale(0.8);
+                transform: scale(0.7);
                 filter: brightness(0);
             }
 
             50% {
-                filter: brightness(1.5);
+                filter: brightness(1.3);
             }
 
             100% {
@@ -293,279 +231,318 @@
             }
         }
 
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 0 50px rgba(201, 162, 39, 0.5),
+                    0 0 100px rgba(201, 162, 39, 0.3);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 70px rgba(201, 162, 39, 0.7),
+                    0 0 140px rgba(201, 162, 39, 0.5);
+            }
+        }
+
+        /* Ring effects */
+        .intro-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid rgba(201, 162, 39, 0.3);
+            border-radius: 50%;
+            opacity: 0;
+            animation: ringExpand 2s ease-out 1.8s forwards;
+        }
+
+        .intro-ring:nth-child(2) {
+            width: 120%;
+            height: 120%;
+        }
+
+        .intro-ring:nth-child(3) {
+            width: 140%;
+            height: 140%;
+            animation-delay: 2.1s;
+        }
+
+        @keyframes ringExpand {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.3;
+            }
+        }
+
         .intro-school-name {
             font-family: 'Cinzel', serif;
-            font-size: clamp(1.5rem, 4vw, 2.8rem);
+            font-size: clamp(1.2rem, 4vw, 2.5rem);
             font-weight: 600;
-            letter-spacing: 6px;
+            letter-spacing: clamp(2px, 0.8vw, 6px);
             text-transform: uppercase;
-            color: var(--cinema-gold);
-            margin-top: 40px;
+            color: var(--gold);
+            margin-top: 30px;
             opacity: 0;
             animation: textReveal 1.5s ease-out 3s forwards;
-            text-shadow: 0 0 30px rgba(201, 162, 39, 0.5);
+            text-shadow: 0 0 25px rgba(201, 162, 39, 0.5);
+            text-align: center;
         }
 
         .intro-tagline {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(1.2rem, 3vw, 2rem);
-            color: #ff3333;
+            font-size: clamp(1rem, 3vw, 1.8rem);
+            color: var(--red);
             margin-top: 15px;
             opacity: 0;
             animation: textReveal 1.5s ease-out 4s forwards;
-            text-shadow: 0 0 25px rgba(255, 51, 51, 0.6);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            text-shadow: 0 0 20px rgba(199, 84, 80, 0.5);
+            text-align: center;
         }
 
         @keyframes textReveal {
             from {
                 opacity: 0;
-                letter-spacing: 20px;
+                letter-spacing: 15px;
             }
 
             to {
                 opacity: 1;
-                letter-spacing: 6px;
+                letter-spacing: clamp(2px, 0.8vw, 6px);
             }
         }
 
-        /* ===== LENS FLARE ===== */
-        .lens-flare {
+        /* ===== SPOTLIGHT EFFECT ===== */
+        .spotlight {
             position: fixed;
-            top: 15%;
-            left: 50%;
-            width: 300px;
-            height: 300px;
-            transform: translate(-50%, -50%);
+            inset: 0;
             pointer-events: none;
-            z-index: 7;
-            opacity: 0;
-            animation: flarePulse 8s ease-in-out infinite 6.5s;
+            z-index: 4;
+            background: radial-gradient(ellipse 50% 60% at 50% 30%,
+                    rgba(255, 255, 255, 0.06) 0%,
+                    rgba(255, 255, 255, 0.02) 40%,
+                    transparent 70%);
+            animation: spotlightPulse 8s ease-in-out infinite;
         }
 
-        .lens-flare::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse, rgba(255, 220, 150, 0.3) 0%, transparent 60%);
-            animation: flareRotate 20s linear infinite;
-        }
-
-        .lens-flare::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 150%;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, rgba(255, 220, 150, 0.4), transparent);
-            transform: translate(-50%, -50%) rotate(-15deg);
-        }
-
-        @keyframes flarePulse {
+        @keyframes spotlightPulse {
 
             0%,
             100% {
-                opacity: 0.3;
+                opacity: 0.6;
             }
 
             50% {
-                opacity: 0.8;
+                opacity: 1;
             }
         }
 
-        @keyframes flareRotate {
-            from {
-                transform: rotate(0deg);
+        /* ===== DUST PARTICLES ===== */
+        .dust-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 6;
+            overflow: hidden;
+        }
+
+        .dust {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            animation: dustFloat 20s linear infinite;
+        }
+
+        @keyframes dustFloat {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
             }
 
-            to {
-                transform: rotate(360deg);
+            10% {
+                opacity: 0.8;
+            }
+
+            90% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-10vh) translateX(40px);
+                opacity: 0;
             }
         }
 
         /* ===== MAIN CONTENT ===== */
-        .main-content {
-            position: relative;
-            z-index: 10;
+        .main {
             min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 80px 20px;
+            position: relative;
+            z-index: 10;
+            opacity: 0;
+            animation: mainIn 1s ease-out 6.5s forwards;
+            will-change: opacity;
         }
 
-        .movie-poster {
-            max-width: 900px;
+        @keyframes mainIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ===== CARD CONTAINER ===== */
+        .card {
+            max-width: 850px;
             width: 100%;
-            background: linear-gradient(180deg,
-                    rgba(20, 20, 20, 0.95) 0%,
-                    rgba(10, 10, 10, 0.98) 50%,
-                    rgba(20, 20, 20, 0.95) 100%);
-            border: 1px solid rgba(201, 162, 39, 0.2);
+            background: var(--card-bg);
+            border: 1px solid rgba(201, 162, 39, 0.3);
             border-radius: 8px;
-            padding: clamp(40px, 8vw, 80px) clamp(30px, 6vw, 60px);
+            padding: clamp(40px, 8vw, 70px) clamp(25px, 5vw, 50px);
             position: relative;
             box-shadow:
-                0 50px 100px rgba(0, 0, 0, 0.8),
-                0 0 100px rgba(201, 162, 39, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+                0 40px 80px rgba(0, 0, 0, 0.6),
+                0 0 60px rgba(201, 162, 39, 0.1);
             opacity: 0;
-            transform: translateY(50px);
-            animation: posterReveal 1.5s ease-out 6.5s forwards;
+            transform: translateY(40px);
+            animation: cardIn 1s ease-out 7s forwards;
         }
 
-        @keyframes posterReveal {
+        @keyframes cardIn {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        /* Decorative corners */
-        .poster-corner {
+        /* Corner Decorations */
+        .corner {
             position: absolute;
-            width: 60px;
-            height: 60px;
-            border: 2px solid var(--cinema-gold);
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--gold);
             opacity: 0;
-            animation: cornerReveal 1s ease-out 7.5s forwards;
+            animation: cornerIn 0.8s ease-out 7.5s forwards;
         }
 
-        .poster-corner.top-left {
-            top: 15px;
-            left: 15px;
-            border-right: none;
-            border-bottom: none;
-        }
-
-        .poster-corner.top-right {
-            top: 15px;
-            right: 15px;
-            border-left: none;
-            border-bottom: none;
-        }
-
-        .poster-corner.bottom-left {
-            bottom: 15px;
-            left: 15px;
-            border-right: none;
-            border-top: none;
-        }
-
-        .poster-corner.bottom-right {
-            bottom: 15px;
-            right: 15px;
-            border-left: none;
-            border-top: none;
-        }
-
-        @keyframes cornerReveal {
-            from {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-
+        @keyframes cornerIn {
             to {
                 opacity: 0.5;
-                transform: scale(1);
             }
         }
 
-        /* School Logos */
+        .corner.tl {
+            top: 15px;
+            left: 15px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .corner.tr {
+            top: 15px;
+            right: 15px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .corner.bl {
+            bottom: 15px;
+            left: 15px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .corner.br {
+            bottom: 15px;
+            right: 15px;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* ===== LOGO & TITLE ===== */
         .logo-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 40px;
+            text-align: center;
+            margin-bottom: 25px;
             opacity: 0;
-            animation: fadeInUp 1s ease-out 7s forwards;
+            animation: fadeIn 0.8s ease-out 7.2s forwards;
         }
 
         .school-logo {
-            width: clamp(60px, 12vw, 90px);
-            height: clamp(60px, 12vw, 90px);
+            width: clamp(60px, 15vw, 85px);
+            height: clamp(60px, 15vw, 85px);
             border-radius: 50%;
-            border: 2px solid var(--cinema-gold);
-            box-shadow: 0 0 30px rgba(201, 162, 39, 0.4);
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 25px rgba(201, 162, 39, 0.4);
             object-fit: cover;
-            transition: all 0.3s ease;
         }
 
-        .school-logo:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 50px rgba(201, 162, 39, 0.6);
-        }
-
-        /* Movie Title */
-        .movie-title-section {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .movie-title {
+        .title {
             font-family: 'Cinzel', serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2rem, 8vw, 3.5rem);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: clamp(4px, 1vw, 12px);
-            background: linear-gradient(180deg,
-                    var(--cinema-gold-light) 0%,
-                    var(--cinema-gold) 40%,
-                    #8B6914 100%);
+            letter-spacing: clamp(2px, 1vw, 6px);
+            text-align: center;
+            background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: none;
-            position: relative;
+            filter: drop-shadow(0 0 20px rgba(201, 162, 39, 0.4));
+            line-height: 1.2;
+            margin-bottom: 10px;
             opacity: 0;
-            animation: epicTitleReveal 2s ease-out 7.5s forwards;
-            filter: drop-shadow(0 0 30px rgba(201, 162, 39, 0.5));
+            animation: titleIn 1.5s ease-out 7.5s forwards;
         }
 
-        @keyframes epicTitleReveal {
+        @keyframes titleIn {
             0% {
                 opacity: 0;
-                letter-spacing: 30px;
-                filter: blur(10px) drop-shadow(0 0 30px rgba(201, 162, 39, 0.5));
+                letter-spacing: 20px;
+                filter: blur(5px) drop-shadow(0 0 20px rgba(201, 162, 39, 0.4));
             }
 
-            50% {
-                filter: blur(0) drop-shadow(0 0 60px rgba(201, 162, 39, 0.8));
+            60% {
+                filter: blur(0) drop-shadow(0 0 40px rgba(201, 162, 39, 0.7));
             }
 
             100% {
                 opacity: 1;
-                letter-spacing: clamp(4px, 1vw, 12px);
-                filter: drop-shadow(0 0 30px rgba(201, 162, 39, 0.5));
+                letter-spacing: clamp(2px, 1vw, 6px);
+                filter: drop-shadow(0 0 20px rgba(201, 162, 39, 0.4));
             }
         }
 
-        .movie-year {
+        .year {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
             font-weight: 500;
-            letter-spacing: 15px;
-            color: #ff3333;
-            margin-top: 10px;
+            letter-spacing: 12px;
+            text-align: center;
+            color: var(--red);
+            text-shadow: 0 0 20px rgba(199, 84, 80, 0.5);
+            margin-bottom: 25px;
             opacity: 0;
-            animation: yearReveal 1.5s ease-out 8.5s forwards;
-            text-shadow: 0 0 25px rgba(255, 51, 51, 0.6);
+            animation: yearIn 1s ease-out 8.3s forwards;
         }
 
-        @keyframes yearReveal {
+        @keyframes yearIn {
             from {
                 opacity: 0;
                 transform: scaleX(0);
@@ -577,92 +554,95 @@
             }
         }
 
-        /* Tagline */
-        .tagline {
+        /* ===== DEAR SENIORS ===== */
+        .dear-seniors {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(1.3rem, 4vw, 2.2rem);
-            color: var(--cinema-white);
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            color: var(--gold);
             text-align: center;
-            margin: 30px 0 15px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(201, 162, 39, 0.3);
             opacity: 0;
-            animation: fadeInUp 1s ease-out 9s forwards;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            animation: fadeIn 0.8s ease-out 8.5s forwards;
         }
 
-        /* Title Line (after Farewell Celebration) */
-        .title-line {
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--cinema-gold), transparent);
-            margin: 20px auto 30px;
-            opacity: 0;
-            animation: titleLineExpand 1.5s ease-out 8s forwards;
-        }
-
-        @keyframes titleLineExpand {
-            to {
-                width: 90%;
-                opacity: 1;
-            }
-        }
-
-        /* Divider with Diamonds */
-        .cinema-divider {
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--cinema-gold), transparent);
-            margin: 15px auto 30px;
-            position: relative;
-            animation: dividerExpand 1.5s ease-out 9.3s forwards;
-        }
-
-        .cinema-divider::before,
-        .cinema-divider::after {
-            content: '❖';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 14px;
-            color: var(--cinema-gold);
-            opacity: 0;
-            animation: symbolFade 0.8s ease-out 10s forwards;
-            text-shadow: 0 0 10px rgba(201, 162, 39, 0.5);
-        }
-
-        .cinema-divider::before {
-            left: -25px;
-        }
-
-        .cinema-divider::after {
-            right: -25px;
-        }
-
-        @keyframes symbolFade {
+        @keyframes fadeIn {
             to {
                 opacity: 1;
             }
         }
 
-        @keyframes dividerExpand {
-            to {
-                width: 80%;
-            }
-        }
-
-        /* Message */
-        .invitation-message {
-            font-size: clamp(1rem, 2.5vw, 1.4rem);
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 2;
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 40px;
+        /* ===== DIVIDER ===== */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0 25px;
             opacity: 0;
-            animation: messageSlide 1s ease-out 9.5s forwards;
+            animation: fadeIn 0.8s ease-out 8.7s forwards;
         }
 
-        @keyframes messageSlide {
+        .divider-line {
+            flex: 1;
+            max-width: 150px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .divider-diamond {
+            color: var(--gold);
+            font-size: 0.7rem;
+        }
+
+        /* ===== INVITATION MESSAGE ===== */
+        .message {
+            font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.9;
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 15px;
+            letter-spacing: 0.3px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 8.9s forwards;
+        }
+
+        .sparkle {
+            text-align: center;
+            color: var(--gold);
+            font-size: 1rem;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 9s forwards;
+        }
+
+        /* ===== EVENT INFO ===== */
+        .event-info {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .info-item {
+            margin-bottom: 22px;
+            opacity: 0;
+            animation: slideIn 0.8s ease-out forwards;
+        }
+
+        .info-item:nth-child(1) {
+            animation-delay: 9.2s;
+        }
+
+        .info-item:nth-child(2) {
+            animation-delay: 9.4s;
+        }
+
+        .info-item:nth-child(3) {
+            animation-delay: 9.6s;
+        }
+
+        @keyframes slideIn {
             from {
                 opacity: 0;
                 transform: translateY(20px);
@@ -674,271 +654,196 @@
             }
         }
 
-        /* Event Details - Credits Style */
-        .credits-section {
-            text-align: center;
-            margin: 40px 0;
-        }
-
-        .credit-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 25px 0;
-            opacity: 0;
-        }
-
-        .credit-item:nth-child(1) {
-            animation: creditRoll 1s ease-out 10s forwards;
-        }
-
-        .credit-item:nth-child(2) {
-            animation: creditRoll 1s ease-out 10.3s forwards;
-        }
-
-        .credit-item:nth-child(3) {
-            animation: creditRoll 1s ease-out 10.6s forwards;
-        }
-
-        @keyframes creditRoll {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .credit-label {
+        .info-label {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(0.7rem, 1.5vw, 0.9rem);
-            font-weight: 300;
-            letter-spacing: 4px;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--cinema-white);
-            margin-bottom: 8px;
+            color: var(--white);
+            margin-bottom: 5px;
         }
 
-        .credit-value {
+        .info-value {
             font-family: 'Cinzel', serif;
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-size: clamp(1.1rem, 3.5vw, 1.6rem);
             font-weight: 600;
-            color: var(--cinema-gold);
-            letter-spacing: 2px;
-            text-shadow: 0 0 15px rgba(201, 162, 39, 0.4);
+            color: var(--gold);
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(201, 162, 39, 0.3);
         }
 
-        /* ===== COUNTDOWN TIMER - CINEMATIC STYLE ===== */
-        .countdown-section {
-            margin: 50px 0 40px;
+        /* ===== COUNTDOWN ===== */
+        .countdown {
             text-align: center;
+            margin-bottom: 35px;
             opacity: 0;
-            animation: fadeInUp 1s ease-out 11s forwards;
+            animation: fadeIn 0.8s ease-out 9.8s forwards;
         }
 
         .countdown-title {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(0.8rem, 2vw, 1rem);
-            font-weight: 300;
-            letter-spacing: 6px;
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--cinema-white);
-            margin-bottom: 25px;
+            color: var(--white);
+            margin-bottom: 22px;
         }
 
-        .countdown-container {
+        .countdown-grid {
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: clamp(8px, 2vw, 20px);
-            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 8px;
         }
 
-        .countdown-item {
+        .countdown-unit {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .countdown-box {
-            width: clamp(55px, 14vw, 90px);
-            height: clamp(65px, 16vw, 100px);
-            background: linear-gradient(180deg, rgba(30, 30, 30, 0.9) 0%, rgba(15, 15, 15, 0.95) 100%);
-            border: 1px solid rgba(201, 162, 39, 0.3);
-            border-radius: 6px;
+            width: clamp(52px, 16vw, 80px);
+            height: clamp(62px, 19vw, 90px);
+            border: 2px solid var(--gold);
+            border-radius: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
-            box-shadow:
-                0 10px 30px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            background: transparent;
         }
 
-        .countdown-box::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: rgba(201, 162, 39, 0.2);
-        }
-
-        .countdown-number {
+        .countdown-num {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(1.5rem, 5vw, 2.8rem);
+            font-size: clamp(1.4rem, 5vw, 2.2rem);
             font-weight: 500;
-            color: var(--cinema-gold);
-            text-shadow: 0 0 15px rgba(201, 162, 39, 0.5);
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(201, 162, 39, 0.4);
         }
 
-        .countdown-label {
+        .countdown-lbl {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+            font-size: 0.55rem;
             font-weight: 300;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--cinema-white);
+            color: var(--white);
             margin-top: 10px;
         }
 
-        .countdown-separator {
-            font-size: clamp(1.2rem, 3vw, 2rem);
-            color: var(--cinema-gold);
-            opacity: 0.5;
-            animation: separatorBlink 1s ease-in-out infinite;
-            margin-top: -20px;
+        .countdown-sep {
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            color: var(--gold);
+            opacity: 0.6;
+            margin-top: 12px;
+            animation: blink 1s ease-in-out infinite;
         }
 
-        @keyframes separatorBlink {
+        @keyframes blink {
 
             0%,
             100% {
-                opacity: 0.5;
+                opacity: 0.6;
             }
 
             50% {
-                opacity: 0.1;
+                opacity: 0.2;
             }
         }
 
         .countdown-expired {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            color: var(--cinema-red);
-            text-shadow: 0 0 30px rgba(139, 0, 0, 0.6);
-        }
-
-        /* Footer */
-        .poster-footer {
-            font-family: 'Great Vibes', cursive;
-            font-size: clamp(1.2rem, 3vw, 2rem);
-            color: var(--cinema-gold);
-            text-align: center;
-            margin-top: 30px;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 11.5s forwards;
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            color: var(--gold);
             text-shadow: 0 0 20px rgba(201, 162, 39, 0.5);
         }
 
-        .heart-beat {
-            display: inline-block;
-            animation: heartPulse 1.5s ease-in-out infinite;
-            color: var(--cinema-red);
+        /* ===== FOOTER MESSAGE ===== */
+        .footer-msg {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.4rem, 5vw, 2rem);
+            color: var(--gold);
+            text-align: center;
+            text-shadow: 0 0 15px rgba(201, 162, 39, 0.3);
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 10s forwards;
         }
 
-        @keyframes heartPulse {
+        .heart {
+            display: inline-block;
+            color: var(--red);
+            animation: heartbeat 1.3s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
 
             0%,
             100% {
                 transform: scale(1);
             }
 
-            15%,
-            35% {
+            14%,
+            28% {
                 transform: scale(1.2);
-            }
-
-            25% {
-                transform: scale(1.1);
             }
         }
 
-        /* Audio Control */
+        /* ===== CREDIT ===== */
+        .credit {
+            position: fixed;
+            bottom: calc(4vh + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray);
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 100;
+        }
+
+        .credit.visible {
+            opacity: 0.7;
+        }
+
+        /* ===== AUDIO BUTTON ===== */
         .audio-btn {
             position: fixed;
-            bottom: 40px;
-            right: 30px;
-            width: 55px;
-            height: 55px;
-            background: rgba(20, 20, 20, 0.9);
-            border: 1px solid var(--cinema-gold);
+            bottom: calc(4vh + 15px);
+            right: 18px;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
+            background: rgba(10, 10, 10, 0.9);
+            border: 2px solid var(--gold);
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
+            font-size: 18px;
+            color: var(--gold);
             z-index: 1000;
-            font-size: 22px;
-            color: var(--cinema-gold);
-            transition: all 0.3s ease;
             opacity: 0;
-            animation: audioFadeIn 0.5s ease-out 7s forwards;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.5s ease-out 6.5s forwards;
+            transition: transform 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .audio-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(201, 162, 39, 0.4);
+        .audio-btn:active {
+            transform: scale(0.95);
         }
 
         .audio-btn.playing {
-            animation: audioPulse 2s ease-in-out infinite;
+            box-shadow: 0 0 15px rgba(201, 162, 39, 0.4);
         }
 
-        @keyframes audioFadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes audioPulse {
-
-            0%,
-            100% {
-                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-            }
-
-            50% {
-                box-shadow: 0 5px 30px rgba(201, 162, 39, 0.5);
-            }
-        }
-
-        /* Credit Line */
-        .website-credit {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-            color: var(--cinema-gray);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: 100;
-        }
-
-        .website-credit.visible {
-            opacity: 0.6;
-        }
-
-        /* ===== RESPONSIVE ===== */
+        /* ===== MOBILE OPTIMIZATIONS ===== */
         @media (max-width: 768px) {
 
             .letterbox-top,
@@ -946,61 +851,238 @@
                 height: 3vh;
             }
 
-            .movie-poster {
-                padding: clamp(30px, 6vw, 50px) clamp(20px, 5vw, 40px);
+            .gold-border-top {
+                top: 3vh;
             }
 
-            .poster-corner {
-                width: 40px;
-                height: 40px;
+            .gold-border-bottom {
+                bottom: 3vh;
             }
 
-            .countdown-separator {
-                margin-top: -15px;
+            .credit {
+                bottom: calc(3vh + 10px);
+                /* REMOVED ANIMATION HERE to allow JS scroll logic to work */
+            }
+
+            .audio-btn {
+                bottom: calc(3vh + 12px);
+            }
+
+            /* Disable heavy effects on mobile */
+            .film-grain {
+                display: none;
+            }
+
+            .spotlight {
+                display: none;
+            }
+
+            .vignette {
+                background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
+            }
+
+            /* Faster intro on mobile */
+            .cinematic-intro {
+                animation: introFadeOut 1s ease-out 4.5s forwards;
+            }
+
+            .studio-presents {
+                animation: fadeInUp 1s ease-out 0.3s forwards;
+            }
+
+            .intro-logo-wrapper {
+                animation: logoReveal 1.5s ease-out 1s forwards;
+            }
+
+            .intro-school-name {
+                animation: textReveal 1s ease-out 2s forwards;
+            }
+
+            .intro-tagline {
+                animation: textReveal 1s ease-out 2.8s forwards;
+            }
+
+            /* Faster main content on mobile */
+            .main {
+                animation: mainIn 0.8s ease-out 5s forwards;
+            }
+
+            .card {
+                animation: cardIn 0.8s ease-out 5.2s forwards;
+            }
+
+            .corner {
+                animation: cornerIn 0.5s ease-out 5.5s forwards;
+            }
+
+            .logo-container {
+                animation: fadeIn 0.6s ease-out 5.3s forwards;
+            }
+
+            .title {
+                animation: titleIn 1s ease-out 5.5s forwards;
+            }
+
+            .year {
+                animation: yearIn 0.8s ease-out 6s forwards;
+            }
+
+            .dear-seniors {
+                animation: fadeIn 0.6s ease-out 6.2s forwards;
+            }
+
+            .divider {
+                animation: fadeIn 0.6s ease-out 6.3s forwards;
+            }
+
+            .message {
+                animation: fadeIn 0.6s ease-out 6.4s forwards;
+            }
+
+            .sparkle {
+                animation: fadeIn 0.6s ease-out 6.5s forwards;
+            }
+
+            .info-item:nth-child(1) {
+                animation-delay: 6.6s;
+            }
+
+            .info-item:nth-child(2) {
+                animation-delay: 6.7s;
+            }
+
+            .info-item:nth-child(3) {
+                animation-delay: 6.8s;
+            }
+
+            .countdown {
+                animation: fadeIn 0.6s ease-out 6.9s forwards;
+            }
+
+            .footer-msg {
+                animation: fadeIn 0.6s ease-out 7s forwards;
+            }
+
+            .audio-btn {
+                animation: fadeIn 0.5s ease-out 5s forwards;
             }
         }
 
         @media (max-width: 480px) {
-
-            .letterbox-top,
-            .letterbox-bottom {
-                height: 2vh;
+            .card {
+                padding: 35px 20px;
+                border-radius: 6px;
             }
 
-            .logo-container {
-                gap: 15px;
+            .corner {
+                width: 35px;
+                height: 35px;
             }
 
-            .countdown-separator {
-                display: none;
-            }
-
-            .countdown-container {
-                gap: 10px;
-            }
-
-            .poster-corner {
-                width: 30px;
-                height: 30px;
+            .corner.tl,
+            .corner.tr {
                 top: 10px;
             }
 
-            .poster-corner.top-left {
+            .corner.bl,
+            .corner.br {
+                bottom: 10px;
+            }
+
+            .corner.tl,
+            .corner.bl {
                 left: 10px;
             }
 
-            .poster-corner.top-right {
+            .corner.tr,
+            .corner.br {
                 right: 10px;
             }
 
-            .poster-corner.bottom-left {
-                bottom: 10px;
-                left: 10px;
+            .countdown-sep {
+                display: none;
             }
 
-            .poster-corner.bottom-right {
-                bottom: 10px;
-                right: 10px;
+            .countdown-grid {
+                gap: 6px;
+            }
+
+            .countdown-box {
+                width: 54px;
+                height: 64px;
+            }
+
+            .countdown-num {
+                font-size: 1.3rem;
+            }
+
+            .divider-line {
+                max-width: 80px;
+            }
+
+            .audio-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 16px;
+                right: 15px;
+            }
+
+            .year {
+                letter-spacing: 8px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .countdown-box {
+                width: 48px;
+                height: 58px;
+            }
+
+            .countdown-num {
+                font-size: 1.1rem;
+            }
+
+            .title {
+                font-size: 1.8rem;
+            }
+
+            .intro-logo {
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+
+            .cinematic-intro {
+                display: none;
+            }
+
+            .main {
+                opacity: 1;
+            }
+
+            .card,
+            .logo-container,
+            .title,
+            .year,
+            .dear-seniors,
+            .divider,
+            .message,
+            .sparkle,
+            .info-item,
+            .countdown,
+            .footer-msg,
+            .credit {
+                opacity: 1;
+                transform: none;
             }
         }
     </style>
@@ -1008,21 +1090,22 @@
 
 <body>
 
-    <!-- Film Grain Overlay -->
-    <div class="film-grain"></div>
+    <!-- Cinematic Letterbox Bars -->
+    <div class="letterbox-top"></div>
+    <div class="letterbox-bottom"></div>
+
+    <!-- Gold Borders -->
+    <div class="gold-border-top"></div>
+    <div class="gold-border-bottom"></div>
 
     <!-- Vignette Effect -->
     <div class="vignette"></div>
 
-    <!-- Animated Spotlight -->
+    <!-- Film Grain (desktop only) -->
+    <div class="film-grain"></div>
+
+    <!-- Spotlight Effect (desktop only) -->
     <div class="spotlight"></div>
-
-    <!-- Lens Flare -->
-    <div class="lens-flare"></div>
-
-    <!-- Letterbox Bars -->
-    <div class="letterbox-top"></div>
-    <div class="letterbox-bottom"></div>
 
     <!-- Dust Particles -->
     <div class="dust-container" id="dustContainer"></div>
@@ -1030,130 +1113,142 @@
     <!-- ===== CINEMATIC INTRO ===== -->
     <div class="cinematic-intro">
         <div class="studio-presents">Your Juniors Present</div>
-        <img src="https://raw.githubusercontent.com/ankushchowrasia/images/1dc75f320ddd6d1e86f750fe6f4755321f36c584/school%20logo.png"
-            class="intro-logo-cinematic" alt="School Logo">
+        <div class="intro-logo-wrapper">
+            <img src="https://raw.githubusercontent.com/ankushchowrasia/images/1dc75f320ddd6d1e86f750fe6f4755321f36c584/school%20logo.png"
+                class="intro-logo" alt="School Logo">
+            <div class="intro-ring"></div>
+            <div class="intro-ring"></div>
+        </div>
         <div class="intro-school-name">Saint Paul's School</div>
-        <div class="intro-tagline"> Farewell Celebration 2026</div>
+        <div class="intro-tagline">Farewell Celebration 2026</div>
     </div>
 
     <!-- ===== MAIN CONTENT ===== -->
-    <div class="main-content">
-        <div class="movie-poster">
-            <!-- Decorative Corners -->
-            <div class="poster-corner top-left"></div>
-            <div class="poster-corner top-right"></div>
-            <div class="poster-corner bottom-left"></div>
-            <div class="poster-corner bottom-right"></div>
+    <main class="main">
+        <div class="card">
+            <!-- Corner Decorations -->
+            <div class="corner tl"></div>
+            <div class="corner tr"></div>
+            <div class="corner bl"></div>
+            <div class="corner br"></div>
 
-            <!-- Logos -->
+            <!-- Logo -->
             <div class="logo-container">
                 <img src="https://raw.githubusercontent.com/ankushchowrasia/images/1dc75f320ddd6d1e86f750fe6f4755321f36c584/school%20logo.png"
                     class="school-logo" alt="School Logo">
             </div>
 
-            <!-- Movie Title -->
-            <div class="movie-title-section">
-                <h1 class="movie-title">Farewell Celebration</h1>
-                <div class="movie-year">2026</div>
+            <!-- Title -->
+            <h1 class="title">Farewell Celebration</h1>
+            <div class="year">2 0 2 6</div>
+
+            <!-- Dear Seniors -->
+            <div class="dear-seniors">🌟 Dear Seniors 🌟</div>
+
+            <!-- Divider -->
+            <div class="divider">
+                <span class="divider-diamond">❖</span>
+                <div class="divider-line"></div>
+                <span class="divider-diamond">❖</span>
+                <div class="divider-line"></div>
+                <span class="divider-diamond">❖</span>
             </div>
 
-            <!-- Title Line -->
-            <div class="title-line"></div>
-
-            <!-- Tagline -->
-            <div class="tagline">🌟 Dear Seniors 🌟</div>
-
-            <!-- Divider with Diamonds -->
-            <div class="cinema-divider"></div>
-
-            <!-- Invitation Message -->
-            <p class="invitation-message">
-                You are cordially invited to an unforgettable evening of memories, laughter, and celebration 🎉
-                as we bid farewell to our beloved seniors. Join us in honoring the bonds we've shared
-                and welcoming a new beginning with smiles and gratitude. ✨
+            <!-- Message -->
+            <p class="message">
+                You are cordially invited to an unforgettable evening of memories, laughter, and celebration 🎉 as we
+                bid farewell to our beloved seniors. Join us in honoring the bonds we've shared and welcoming a new
+                beginning with smiles and gratitude.
             </p>
+            <div class="sparkle">✨</div>
 
-            <!-- Credits Section (Event Details) -->
-            <div class="credits-section">
-                <div class="credit-item">
-                    <span class="credit-label">📅 Premiere Date</span>
-                    <span class="credit-value">17th January, 2026</span>
+            <!-- Event Info -->
+            <section class="event-info">
+                <div class="info-item">
+                    <div class="info-label">📅 Date</div>
+                    <div class="info-value">17th January, 2026</div>
                 </div>
-                <div class="credit-item">
-                    <span class="credit-label">⏰ Showtime</span>
-                    <span class="credit-value">4:00 PM Onwards</span>
+                <div class="info-item">
+                    <div class="info-label">👩 Time</div>
+                    <div class="info-value">4:00 PM Onwards</div>
                 </div>
-                <div class="credit-item">
-                    <span class="credit-label">📍 Venue</span>
-                    <span class="credit-value">Saint Paul's School, Paharpur Campus</span>
+                <div class="info-item">
+                    <div class="info-label">📍 Venue</div>
+                    <div class="info-value">Saint Paul's School, Paharpur Campus</div>
                 </div>
-            </div>
+            </section>
 
             <!-- Countdown Timer -->
-            <div class="countdown-section">
-                <div class="countdown-title">⏳ Time Until The Premiere ⏳</div>
-                <div class="countdown-container" id="countdownContainer">
-                    <div class="countdown-item">
+            <section class="countdown">
+                <div class="countdown-title">⏳ Time Until The Farewell ⏳</div>
+                <div class="countdown-grid" id="countdownGrid">
+                    <div class="countdown-unit">
                         <div class="countdown-box">
-                            <span class="countdown-number" id="days">00</span>
+                            <span class="countdown-num" id="days">00</span>
                         </div>
-                        <span class="countdown-label">Days</span>
+                        <span class="countdown-lbl">Days</span>
                     </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-item">
+                    <span class="countdown-sep">:</span>
+                    <div class="countdown-unit">
                         <div class="countdown-box">
-                            <span class="countdown-number" id="hours">00</span>
+                            <span class="countdown-num" id="hours">00</span>
                         </div>
-                        <span class="countdown-label">Hours</span>
+                        <span class="countdown-lbl">Hours</span>
                     </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-item">
+                    <span class="countdown-sep">:</span>
+                    <div class="countdown-unit">
                         <div class="countdown-box">
-                            <span class="countdown-number" id="minutes">00</span>
+                            <span class="countdown-num" id="minutes">00</span>
                         </div>
-                        <span class="countdown-label">Minutes</span>
+                        <span class="countdown-lbl">Minutes</span>
                     </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-item">
+                    <span class="countdown-sep">:</span>
+                    <div class="countdown-unit">
                         <div class="countdown-box">
-                            <span class="countdown-number" id="seconds">00</span>
+                            <span class="countdown-num" id="seconds">00</span>
                         </div>
-                        <span class="countdown-label">Seconds</span>
+                        <span class="countdown-lbl">Seconds</span>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Footer -->
-            <div class="poster-footer">
-                With love from your Juniors <span class="heart-beat">❤</span>
+            <!-- Footer Message -->
+            <div class="footer-msg">
+                With love from your Juniors <span class="heart">❤</span>
             </div>
         </div>
-    </div>
+    </main>
 
-    <!-- Website Credit -->
-    <div class="website-credit">DESIGNED BY ANKUSH CHOWRASIA</div>
+    <!-- Credit -->
+    <div class="credit">Designed by Ankush Chowrasia</div>
 
-    <!-- Audio Control -->
-    <div class="audio-btn" id="audioBtn">🔊</div>
+    <!-- Audio Button -->
+    <button class="audio-btn" id="audioBtn" aria-label="Toggle Music">🔊</button>
 
-    <!-- Background Audio -->
-    <audio id="bgMusic" loop>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop preload="auto">
         <source
             src="https://raw.githubusercontent.com/ankushchowrasia/farewellivitation/4963cd9a91fd809de5a1109862d08452103454d0/WhatsApp%20Video%202025-10-31%20at%2022.11.19_7db48dfd.mp3"
             type="audio/mpeg">
     </audio>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Create dust particles
+        (function () {
+            'use strict';
+
+            const isMobile = window.innerWidth <= 768;
+
+            // Create dust particles (fewer on mobile)
             const dustContainer = document.getElementById('dustContainer');
-            for (let i = 0; i < 40; i++) {
+            const dustCount = isMobile ? 15 : 35;
+
+            for (let i = 0; i < dustCount; i++) {
                 const dust = document.createElement('div');
                 dust.className = 'dust';
-                dust.style.left = `${Math.random() * 100}%`;
-                dust.style.animationDelay = `${Math.random() * 20}s`;
-                dust.style.animationDuration = `${15 + Math.random() * 15}s`;
-                dust.style.opacity = Math.random() * 0.5 + 0.2;
+                dust.style.left = Math.random() * 100 + '%';
+                dust.style.animationDelay = Math.random() * 20 + 's';
+                dust.style.animationDuration = (15 + Math.random() * 12) + 's';
+                dust.style.opacity = (0.3 + Math.random() * 0.4).toFixed(2);
                 dustContainer.appendChild(dust);
             }
 
@@ -1162,7 +1257,7 @@
             const audioBtn = document.getElementById('audioBtn');
             let isPlaying = false;
 
-            audioBtn.addEventListener('click', () => {
+            audioBtn.addEventListener('click', function () {
                 if (isPlaying) {
                     music.pause();
                     audioBtn.textContent = '🔇';
@@ -1176,67 +1271,86 @@
             });
 
             // Auto-play after intro
-            setTimeout(() => {
-                const playPromise = music.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        isPlaying = true;
-                        audioBtn.textContent = '🔊';
-                        audioBtn.classList.add('playing');
-                    }).catch(() => {
-                        audioBtn.textContent = '🔇';
-                        isPlaying = false;
-                    });
-                }
-            }, 7000);
+            const autoplayDelay = isMobile ? 5000 : 6500;
+            setTimeout(function () {
+                music.play().then(function () {
+                    isPlaying = true;
+                    audioBtn.textContent = '🔊';
+                    audioBtn.classList.add('playing');
+                }).catch(function () {
+                    audioBtn.textContent = '🔇';
+                });
+            }, autoplayDelay);
 
-            // Website credit visibility
-            const credit = document.querySelector('.website-credit');
-            function checkScroll() {
-                if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
-                    credit.classList.add('visible');
-                } else {
-                    credit.classList.remove('visible');
-                }
-            }
-            window.addEventListener('scroll', checkScroll);
-            checkScroll();
-
-            // ===== COUNTDOWN TIMER =====
+            // Countdown Timer
             const eventDate = new Date('January 17, 2026 16:00:00').getTime();
-
             const daysEl = document.getElementById('days');
             const hoursEl = document.getElementById('hours');
             const minutesEl = document.getElementById('minutes');
             const secondsEl = document.getElementById('seconds');
+            const gridEl = document.getElementById('countdownGrid');
 
             function updateCountdown() {
-                const now = new Date().getTime();
+                const now = Date.now();
                 const distance = eventDate - now;
 
                 if (distance < 0) {
-                    document.getElementById('countdownContainer').innerHTML =
-                        '<div class="countdown-expired">🎬 The Show Has Begun! 🎬</div>';
+                    gridEl.innerHTML = '<div class="countdown-expired">🎬 The Show Has Begun! 🎬</div>';
                     return;
                 }
 
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                const d = Math.floor(distance / 86400000);
+                const h = Math.floor((distance % 86400000) / 3600000);
+                const m = Math.floor((distance % 3600000) / 60000);
+                const s = Math.floor((distance % 60000) / 1000);
 
-                daysEl.textContent = days.toString().padStart(2, '0');
-                hoursEl.textContent = hours.toString().padStart(2, '0');
-                minutesEl.textContent = minutes.toString().padStart(2, '0');
-                secondsEl.textContent = seconds.toString().padStart(2, '0');
+                daysEl.textContent = d.toString().padStart(2, '0');
+                hoursEl.textContent = h.toString().padStart(2, '0');
+                minutesEl.textContent = m.toString().padStart(2, '0');
+                secondsEl.textContent = s.toString().padStart(2, '0');
             }
 
             // Start countdown after intro
-            setTimeout(() => {
+            const countdownDelay = isMobile ? 5000 : 7000;
+            setTimeout(function () {
                 updateCountdown();
                 setInterval(updateCountdown, 1000);
-            }, 7000);
-        });
+            }, countdownDelay);
+
+            // Credit visibility on scroll direction
+            const credit = document.querySelector('.credit');
+            let lastScrollY = window.scrollY;
+            let creditVisible = false;
+
+            function checkScroll() {
+                const currentScrollY = window.scrollY;
+                const maxScroll = document.body.offsetHeight - window.innerHeight;
+
+                // Only show when scrolled down AND near bottom (within 100px)
+                if (currentScrollY > lastScrollY && currentScrollY >= maxScroll - 100) {
+                    // Scrolling DOWN and near bottom
+                    if (!creditVisible) {
+                        credit.classList.add('visible');
+                        creditVisible = true;
+                    }
+                } else if (currentScrollY < lastScrollY) {
+                    // Scrolling UP - hide credit
+                    if (creditVisible) {
+                        credit.classList.remove('visible');
+                        creditVisible = false;
+                    }
+                }
+
+                lastScrollY = currentScrollY;
+            }
+
+            // Start listening after intro
+            const creditDelay = isMobile ? 7500 : 10500;
+            setTimeout(function () {
+                window.addEventListener('scroll', checkScroll, { passive: true });
+            }, creditDelay);
+
+        })();
     </script>
 
 </body>
