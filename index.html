@@ -583,19 +583,64 @@
             font-size: clamp(1.3rem, 4vw, 2.2rem);
             color: var(--cinema-white);
             text-align: center;
-            margin: 30px 0;
+            margin: 30px 0 15px;
             opacity: 0;
             animation: fadeInUp 1s ease-out 9s forwards;
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
 
-        /* Divider */
+        /* Title Line (after Farewell Celebration) */
+        .title-line {
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cinema-gold), transparent);
+            margin: 20px auto 30px;
+            opacity: 0;
+            animation: titleLineExpand 1.5s ease-out 8s forwards;
+        }
+
+        @keyframes titleLineExpand {
+            to {
+                width: 90%;
+                opacity: 1;
+            }
+        }
+
+        /* Divider with Diamonds */
         .cinema-divider {
             width: 0;
-            height: 1px;
+            height: 2px;
             background: linear-gradient(90deg, transparent, var(--cinema-gold), transparent);
-            margin: 30px auto;
-            animation: dividerExpand 1.5s ease-out 9s forwards;
+            margin: 15px auto 30px;
+            position: relative;
+            animation: dividerExpand 1.5s ease-out 9.3s forwards;
+        }
+
+        .cinema-divider::before,
+        .cinema-divider::after {
+            content: '❖';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: var(--cinema-gold);
+            opacity: 0;
+            animation: symbolFade 0.8s ease-out 10s forwards;
+            text-shadow: 0 0 10px rgba(201, 162, 39, 0.5);
+        }
+
+        .cinema-divider::before {
+            left: -25px;
+        }
+
+        .cinema-divider::after {
+            right: -25px;
+        }
+
+        @keyframes symbolFade {
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes dividerExpand {
@@ -1012,10 +1057,13 @@
                 <div class="movie-year">2026</div>
             </div>
 
+            <!-- Title Line -->
+            <div class="title-line"></div>
+
             <!-- Tagline -->
             <div class="tagline">🌟 Dear Seniors 🌟</div>
 
-            <!-- Divider -->
+            <!-- Divider with Diamonds -->
             <div class="cinema-divider"></div>
 
             <!-- Invitation Message -->
@@ -1029,7 +1077,7 @@
             <div class="credits-section">
                 <div class="credit-item">
                     <span class="credit-label">📅 Premiere Date</span>
-                    <span class="credit-value">22nd January, 2026</span>
+                    <span class="credit-value">17th January, 2026</span>
                 </div>
                 <div class="credit-item">
                     <span class="credit-label">⏰ Showtime</span>
@@ -1155,7 +1203,7 @@
             checkScroll();
 
             // ===== COUNTDOWN TIMER =====
-            const eventDate = new Date('January 22, 2026 16:00:00').getTime();
+            const eventDate = new Date('January 17, 2026 16:00:00').getTime();
 
             const daysEl = document.getElementById('days');
             const hoursEl = document.getElementById('hours');
