@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saint Paul's School Farewell 2026 </title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png"
+        href="https://raw.githubusercontent.com/ankushchowrasia/images/4c194ded86ea8e51cc47661648241ed33137879a/Screenshot%202025-11-16%20191547.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&family=Oswald:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --cinema-black: #0a0a0a;
+            --cinema-dark: #111111;
+            --cinema-red: #8B0000;
+            --cinema-red-glow: #ff2020;
+            --cinema-gold: #c9a227;
+            --cinema-gold-light: #e8d48b;
+            --cinema-white: #f5f5f5;
+            --cinema-gray: #888888;
+        }
+
+        html,
+        body {
+            min-height: 100vh;
+            width: 100%;
+            background: var(--cinema-black);
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--cinema-white);
+            overflow-x: hidden;
+        }
+
+        /* ===== FILM GRAIN OVERLAY ===== */
+        .film-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+            animation: grainShift 0.5s steps(10) infinite;
+        }
+
+        @keyframes grainShift {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            10% {
+                transform: translate(-1%, -1%);
+            }
+
+            20% {
+                transform: translate(1%, 1%);
+            }
+
+            30% {
+                transform: translate(-1%, 1%);
+            }
+
+            40% {
+                transform: translate(1%, -1%);
+            }
+
+            50% {
+                transform: translate(-1%, 0);
+            }
+
+            60% {
+                transform: translate(1%, 0);
+            }
+
+            70% {
+                transform: translate(0, 1%);
+            }
+
+            80% {
+                transform: translate(0, -1%);
+            }
+
+            90% {
+                transform: translate(1%, 1%);
+            }
+        }
+
+        /* ===== VIGNETTE EFFECT ===== */
+        .vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+            background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.7) 100%);
+        }
+
+        /* ===== SPOTLIGHT EFFECT ===== */
+        .spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 4;
+            background: radial-gradient(ellipse 60% 80% at var(--spot-x, 50%) var(--spot-y, 30%),
+                    rgba(255, 255, 255, 0.08) 0%,
+                    rgba(255, 255, 255, 0.02) 30%,
+                    transparent 70%);
+            animation: spotlightMove 15s ease-in-out infinite;
+        }
+
+        @keyframes spotlightMove {
+
+            0%,
+            100% {
+                --spot-x: 30%;
+                --spot-y: 20%;
+            }
+
+            25% {
+                --spot-x: 70%;
+                --spot-y: 25%;
+            }
+
+            50% {
+                --spot-x: 60%;
+                --spot-y: 40%;
+            }
+
+            75% {
+                --spot-x: 40%;
+                --spot-y: 30%;
+            }
+        }
+
+        /* ===== CINEMATIC LETTERBOX BARS ===== */
+        .letterbox-top,
+        .letterbox-bottom {
+            position: fixed;
+            left: 0;
+            right: 0;
+            height: 5vh;
+            background: #000;
+            z-index: 100;
+            opacity: 0;
+            animation: letterboxFade 1.5s ease-out 0.5s forwards;
+        }
+
+        .letterbox-top {
+            top: 0;
+        }
+
+        .letterbox-bottom {
+            bottom: 0;
+        }
+
+        @keyframes letterboxFade {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ===== DUST PARTICLES ===== */
+        .dust-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 6;
+            overflow: hidden;
+        }
+
+        .dust {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: dustFloat 20s linear infinite;
+        }
+
+        @keyframes dustFloat {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-10vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        /* ===== CINEMATIC INTRO ===== */
+        .cinematic-intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: introFadeOut 1.5s ease-out 6s forwards;
+        }
+
+        @keyframes introFadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+        }
+
+        .studio-presents {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(0.8rem, 2vw, 1.2rem);
+            font-weight: 300;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: var(--cinema-gray);
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out 0.5s forwards;
+            margin-bottom: 30px;
+        }
+
+        .intro-logo-cinematic {
+            width: clamp(150px, 30vw, 250px);
+            height: clamp(150px, 30vw, 250px);
+            border-radius: 50%;
+            border: 3px solid var(--cinema-gold);
+            box-shadow:
+                0 0 60px rgba(201, 162, 39, 0.4),
+                0 0 120px rgba(201, 162, 39, 0.2),
+                inset 0 0 30px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            animation: logoReveal 2s ease-out 1.5s forwards;
+            object-fit: cover;
+        }
+
+        @keyframes logoReveal {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+                filter: brightness(0);
+            }
+
+            50% {
+                filter: brightness(1.5);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: brightness(1);
+            }
+        }
+
+        .intro-school-name {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.5rem, 4vw, 2.8rem);
+            font-weight: 600;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--cinema-gold);
+            margin-top: 40px;
+            opacity: 0;
+            animation: textReveal 1.5s ease-out 3s forwards;
+            text-shadow: 0 0 30px rgba(201, 162, 39, 0.5);
+        }
+
+        .intro-tagline {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: var(--cinema-red);
+            margin-top: 15px;
+            opacity: 0;
+            animation: textReveal 1.5s ease-out 4s forwards;
+            text-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes textReveal {
+            from {
+                opacity: 0;
+                letter-spacing: 20px;
+            }
+
+            to {
+                opacity: 1;
+                letter-spacing: 6px;
+            }
+        }
+
+        /* ===== LENS FLARE ===== */
+        .lens-flare {
+            position: fixed;
+            top: 15%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 7;
+            opacity: 0;
+            animation: flarePulse 8s ease-in-out infinite 6.5s;
+        }
+
+        .lens-flare::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse, rgba(255, 220, 150, 0.3) 0%, transparent 60%);
+            animation: flareRotate 20s linear infinite;
+        }
+
+        .lens-flare::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, rgba(255, 220, 150, 0.4), transparent);
+            transform: translate(-50%, -50%) rotate(-15deg);
+        }
+
+        @keyframes flarePulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes flareRotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px;
+        }
+
+        .movie-poster {
+            max-width: 900px;
+            width: 100%;
+            background: linear-gradient(180deg,
+                    rgba(20, 20, 20, 0.95) 0%,
+                    rgba(10, 10, 10, 0.98) 50%,
+                    rgba(20, 20, 20, 0.95) 100%);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 8px;
+            padding: clamp(40px, 8vw, 80px) clamp(30px, 6vw, 60px);
+            position: relative;
+            box-shadow:
+                0 50px 100px rgba(0, 0, 0, 0.8),
+                0 0 100px rgba(201, 162, 39, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: posterReveal 1.5s ease-out 6.5s forwards;
+        }
+
+        @keyframes posterReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Decorative corners */
+        .poster-corner {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--cinema-gold);
+            opacity: 0;
+            animation: cornerReveal 1s ease-out 7.5s forwards;
+        }
+
+        .poster-corner.top-left {
+            top: 15px;
+            left: 15px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .poster-corner.top-right {
+            top: 15px;
+            right: 15px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .poster-corner.bottom-left {
+            bottom: 15px;
+            left: 15px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .poster-corner.bottom-right {
+            bottom: 15px;
+            right: 15px;
+            border-left: none;
+            border-top: none;
+        }
+
+        @keyframes cornerReveal {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+        }
+
+        /* School Logos */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 7s forwards;
+        }
+
+        .school-logo {
+            width: clamp(60px, 12vw, 90px);
+            height: clamp(60px, 12vw, 90px);
+            border-radius: 50%;
+            border: 2px solid var(--cinema-gold);
+            box-shadow: 0 0 30px rgba(201, 162, 39, 0.4);
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .school-logo:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(201, 162, 39, 0.6);
+        }
+
+        /* Movie Title */
+        .movie-title-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .movie-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: clamp(4px, 1vw, 12px);
+            background: linear-gradient(180deg,
+                    var(--cinema-gold-light) 0%,
+                    var(--cinema-gold) 40%,
+                    #8B6914 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+            position: relative;
+            opacity: 0;
+            animation: epicTitleReveal 2s ease-out 7.5s forwards;
+            filter: drop-shadow(0 0 30px rgba(201, 162, 39, 0.5));
+        }
+
+        @keyframes epicTitleReveal {
+            0% {
+                opacity: 0;
+                letter-spacing: 30px;
+                filter: blur(10px) drop-shadow(0 0 30px rgba(201, 162, 39, 0.5));
+            }
+
+            50% {
+                filter: blur(0) drop-shadow(0 0 60px rgba(201, 162, 39, 0.8));
+            }
+
+            100% {
+                opacity: 1;
+                letter-spacing: clamp(4px, 1vw, 12px);
+                filter: drop-shadow(0 0 30px rgba(201, 162, 39, 0.5));
+            }
+        }
+
+        .movie-year {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 300;
+            letter-spacing: 15px;
+            color: var(--cinema-red);
+            margin-top: 10px;
+            opacity: 0;
+            animation: yearReveal 1.5s ease-out 8.5s forwards;
+            text-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+        }
+
+        @keyframes yearReveal {
+            from {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+
+            to {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+        }
+
+        /* Tagline */
+        .tagline {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.3rem, 4vw, 2.2rem);
+            color: var(--cinema-white);
+            text-align: center;
+            margin: 30px 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 9s forwards;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Divider */
+        .cinema-divider {
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--cinema-gold), transparent);
+            margin: 30px auto;
+            animation: dividerExpand 1.5s ease-out 9s forwards;
+        }
+
+        @keyframes dividerExpand {
+            to {
+                width: 80%;
+            }
+        }
+
+        /* Message */
+        .invitation-message {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 2;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0;
+            animation: messageSlide 1s ease-out 9.5s forwards;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Event Details - Credits Style */
+        .credits-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .credit-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 25px 0;
+            opacity: 0;
+        }
+
+        .credit-item:nth-child(1) {
+            animation: creditRoll 1s ease-out 10s forwards;
+        }
+
+        .credit-item:nth-child(2) {
+            animation: creditRoll 1s ease-out 10.3s forwards;
+        }
+
+        .credit-item:nth-child(3) {
+            animation: creditRoll 1s ease-out 10.6s forwards;
+        }
+
+        @keyframes creditRoll {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .credit-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--cinema-gray);
+            margin-bottom: 8px;
+        }
+
+        .credit-value {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 600;
+            color: var(--cinema-gold);
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(201, 162, 39, 0.4);
+        }
+
+        /* ===== COUNTDOWN TIMER - CINEMATIC STYLE ===== */
+        .countdown-section {
+            margin: 50px 0 40px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 11s forwards;
+        }
+
+        .countdown-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            font-weight: 300;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--cinema-gray);
+            margin-bottom: 25px;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: clamp(8px, 2vw, 20px);
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .countdown-box {
+            width: clamp(55px, 14vw, 90px);
+            height: clamp(65px, 16vw, 100px);
+            background: linear-gradient(180deg, rgba(30, 30, 30, 0.9) 0%, rgba(15, 15, 15, 0.95) 100%);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .countdown-box::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(201, 162, 39, 0.2);
+        }
+
+        .countdown-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(1.5rem, 5vw, 2.8rem);
+            font-weight: 500;
+            color: var(--cinema-gold);
+            text-shadow: 0 0 15px rgba(201, 162, 39, 0.5);
+        }
+
+        .countdown-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--cinema-gray);
+            margin-top: 10px;
+        }
+
+        .countdown-separator {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: var(--cinema-gold);
+            opacity: 0.5;
+            animation: separatorBlink 1s ease-in-out infinite;
+            margin-top: -20px;
+        }
+
+        @keyframes separatorBlink {
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 0.1;
+            }
+        }
+
+        .countdown-expired {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--cinema-red);
+            text-shadow: 0 0 30px rgba(139, 0, 0, 0.6);
+        }
+
+        /* Footer */
+        .poster-footer {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: var(--cinema-red);
+            text-align: center;
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 11.5s forwards;
+            text-shadow: 0 0 20px rgba(139, 0, 0, 0.4);
+        }
+
+        .heart-beat {
+            display: inline-block;
+            animation: heartPulse 1.5s ease-in-out infinite;
+            color: var(--cinema-red);
+        }
+
+        @keyframes heartPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            15%,
+            35% {
+                transform: scale(1.2);
+            }
+
+            25% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Audio Control */
+        .audio-btn {
+            position: fixed;
+            bottom: 40px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid var(--cinema-gold);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+            font-size: 22px;
+            color: var(--cinema-gold);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: audioFadeIn 0.5s ease-out 7s forwards;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .audio-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(201, 162, 39, 0.4);
+        }
+
+        .audio-btn.playing {
+            animation: audioPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes audioFadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes audioPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 5px 30px rgba(201, 162, 39, 0.5);
+            }
+        }
+
+        /* Credit Line */
+        .website-credit {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--cinema-gray);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 100;
+        }
+
+        .website-credit.visible {
+            opacity: 0.6;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+
+            .letterbox-top,
+            .letterbox-bottom {
+                height: 3vh;
+            }
+
+            .movie-poster {
+                padding: clamp(30px, 6vw, 50px) clamp(20px, 5vw, 40px);
+            }
+
+            .poster-corner {
+                width: 40px;
+                height: 40px;
+            }
+
+            .countdown-separator {
+                margin-top: -15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .letterbox-top,
+            .letterbox-bottom {
+                height: 2vh;
+            }
+
+            .logo-container {
+                gap: 15px;
+            }
+
+            .countdown-separator {
+                display: none;
+            }
+
+            .countdown-container {
+                gap: 10px;
+            }
+
+            .poster-corner {
+                width: 30px;
+                height: 30px;
+                top: 10px;
+            }
+
+            .poster-corner.top-left {
+                left: 10px;
+            }
+
+            .poster-corner.top-right {
+                right: 10px;
+            }
+
+            .poster-corner.bottom-left {
+                bottom: 10px;
+                left: 10px;
+            }
+
+            .poster-corner.bottom-right {
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Film Grain Overlay -->
+    <div class="film-grain"></div>
+
+    <!-- Vignette Effect -->
+    <div class="vignette"></div>
+
+    <!-- Animated Spotlight -->
+    <div class="spotlight"></div>
+
+    <!-- Lens Flare -->
+    <div class="lens-flare"></div>
+
+    <!-- Letterbox Bars -->
+    <div class="letterbox-top"></div>
+    <div class="letterbox-bottom"></div>
+
+    <!-- Dust Particles -->
+    <div class="dust-container" id="dustContainer"></div>
+
+    <!-- ===== CINEMATIC INTRO ===== -->
+    <div class="cinematic-intro">
+        <div class="studio-presents">Your Juniors Present</div>
+        <img src="https://raw.githubusercontent.com/ankushchowrasia/images/1dc75f320ddd6d1e86f750fe6f4755321f36c584/school%20logo.png"
+            class="intro-logo-cinematic" alt="School Logo">
+        <div class="intro-school-name">Saint Paul's School</div>
+        <div class="intro-tagline"> Farewell Celebration 2026</div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="main-content">
+        <div class="movie-poster">
+            <!-- Decorative Corners -->
+            <div class="poster-corner top-left"></div>
+            <div class="poster-corner top-right"></div>
+            <div class="poster-corner bottom-left"></div>
+            <div class="poster-corner bottom-right"></div>
+
+            <!-- Logos -->
+            <div class="logo-container">
+                <img src="https://raw.githubusercontent.com/ankushchowrasia/images/1dc75f320ddd6d1e86f750fe6f4755321f36c584/school%20logo.png"
+                    class="school-logo" alt="School Logo">
+            </div>
+
+            <!-- Movie Title -->
+            <div class="movie-title-section">
+                <h1 class="movie-title">Farewell Celebration</h1>
+                <div class="movie-year">2026</div>
+            </div>
+
+            <!-- Tagline -->
+            <div class="tagline">🌟 Dear Seniors 🌟</div>
+
+            <!-- Divider -->
+            <div class="cinema-divider"></div>
+
+            <!-- Invitation Message -->
+            <p class="invitation-message">
+                You are cordially invited to an unforgettable evening of memories, laughter, and celebration 🎉
+                as we bid farewell to our beloved seniors. Join us in honoring the bonds we've shared
+                and welcoming a new beginning with smiles and gratitude. ✨
+            </p>
+
+            <!-- Credits Section (Event Details) -->
+            <div class="credits-section">
+                <div class="credit-item">
+                    <span class="credit-label">📅 Premiere Date</span>
+                    <span class="credit-value">22nd January, 2026</span>
+                </div>
+                <div class="credit-item">
+                    <span class="credit-label">⏰ Showtime</span>
+                    <span class="credit-value">4:00 PM Onwards</span>
+                </div>
+                <div class="credit-item">
+                    <span class="credit-label">📍 Venue</span>
+                    <span class="credit-value">Saint Paul's School, Paharpur Campus</span>
+                </div>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-section">
+                <div class="countdown-title">⏳ Time Until The Premiere ⏳</div>
+                <div class="countdown-container" id="countdownContainer">
+                    <div class="countdown-item">
+                        <div class="countdown-box">
+                            <span class="countdown-number" id="days">00</span>
+                        </div>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <div class="countdown-box">
+                            <span class="countdown-number" id="hours">00</span>
+                        </div>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <div class="countdown-box">
+                            <span class="countdown-number" id="minutes">00</span>
+                        </div>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <div class="countdown-box">
+                            <span class="countdown-number" id="seconds">00</span>
+                        </div>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="poster-footer">
+                With love from your Juniors <span class="heart-beat">❤</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Website Credit -->
+    <div class="website-credit">DESIGNED BY ANKUSH CHOWRASIA</div>
+
+    <!-- Audio Control -->
+    <div class="audio-btn" id="audioBtn">🔊</div>
+
+    <!-- Background Audio -->
+    <audio id="bgMusic" loop>
+        <source
+            src="https://raw.githubusercontent.com/ankushchowrasia/farewellivitation/4963cd9a91fd809de5a1109862d08452103454d0/WhatsApp%20Video%202025-10-31%20at%2022.11.19_7db48dfd.mp3"
+            type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Create dust particles
+            const dustContainer = document.getElementById('dustContainer');
+            for (let i = 0; i < 40; i++) {
+                const dust = document.createElement('div');
+                dust.className = 'dust';
+                dust.style.left = `${Math.random() * 100}%`;
+                dust.style.animationDelay = `${Math.random() * 20}s`;
+                dust.style.animationDuration = `${15 + Math.random() * 15}s`;
+                dust.style.opacity = Math.random() * 0.5 + 0.2;
+                dustContainer.appendChild(dust);
+            }
+
+            // Audio Control
+            const music = document.getElementById('bgMusic');
+            const audioBtn = document.getElementById('audioBtn');
+            let isPlaying = false;
+
+            audioBtn.addEventListener('click', () => {
+                if (isPlaying) {
+                    music.pause();
+                    audioBtn.textContent = '🔇';
+                    audioBtn.classList.remove('playing');
+                } else {
+                    music.play();
+                    audioBtn.textContent = '🔊';
+                    audioBtn.classList.add('playing');
+                }
+                isPlaying = !isPlaying;
+            });
+
+            // Auto-play after intro
+            setTimeout(() => {
+                const playPromise = music.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        isPlaying = true;
+                        audioBtn.textContent = '🔊';
+                        audioBtn.classList.add('playing');
+                    }).catch(() => {
+                        audioBtn.textContent = '🔇';
+                        isPlaying = false;
+                    });
+                }
+            }, 7000);
+
+            // Website credit visibility
+            const credit = document.querySelector('.website-credit');
+            function checkScroll() {
+                if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
+                    credit.classList.add('visible');
+                } else {
+                    credit.classList.remove('visible');
+                }
+            }
+            window.addEventListener('scroll', checkScroll);
+            checkScroll();
+
+            // ===== COUNTDOWN TIMER =====
+            const eventDate = new Date('January 22, 2026 16:00:00').getTime();
+
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = eventDate - now;
+
+                if (distance < 0) {
+                    document.getElementById('countdownContainer').innerHTML =
+                        '<div class="countdown-expired">🎬 The Show Has Begun! 🎬</div>';
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                daysEl.textContent = days.toString().padStart(2, '0');
+                hoursEl.textContent = hours.toString().padStart(2, '0');
+                minutesEl.textContent = minutes.toString().padStart(2, '0');
+                secondsEl.textContent = seconds.toString().padStart(2, '0');
+            }
+
+            // Start countdown after intro
+            setTimeout(() => {
+                updateCountdown();
+                setInterval(updateCountdown, 1000);
+            }, 7000);
+        });
+    </script>
+
+</body>
+
+</html>
